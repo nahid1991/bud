@@ -20,7 +20,7 @@ const styles = {
   nameHolder: {
     position: "absolute",
     color: "white",
-    left: "41%",
+    left: "25%",
     top: "-10px",
     zIndex: "501",
     cursor: "pointer",
@@ -36,7 +36,7 @@ const styles = {
     fontSize: "30px",
     fontWeight: "bold",
     color: "#ffffff",
-    width: "80%",
+    width: "100%",
     border: "none",
     padding: "23px 10px 0px 0px",
     height: "35px",
