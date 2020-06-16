@@ -26,7 +26,7 @@ class Banner extends Component {
   }
 
   openFileBrowser = (id) => {
-    var elem = document.getElementById(id);
+    let elem = document.getElementById(id);
     elem.click();
   };
 
@@ -42,7 +42,6 @@ class Banner extends Component {
 
   render() {
     return (
-
       <div className="navigation_container">
         <div className="l">
           <div className="l-triangle-top"/>
@@ -57,7 +56,7 @@ class Banner extends Component {
           </div>
           <div>
             <div style={{position: "absolute", color: "white", left: "45%", top: "-10px", zIndex: "501"}}>
-              <h1>John Doe</h1>
+              <h1>Nahid Islam</h1>
             </div>
           </div>
         </div>
