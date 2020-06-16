@@ -11,3 +11,120 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.root {
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 10px 10% 10px 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/*.navigation li {*/
+/*  list-style: none;*/
+/*  display: block;*/
+/*  float: left;*/
+/*  margin: 1em;*/
+/*}*/
+
+/*.navigation li a {*/
+/*  text-shadow: 0 2px 1px rgba(0,0,0,0.5);*/
+/*  display: block;*/
+/*  text-decoration: none;*/
+/*  color: #f0f0f0;*/
+/*  font-size: 1.6em;*/
+/*  margin: 0 .5em;*/
+/*}*/
+
+/*.navigation li a:hover {*/
+/*  margin-top: 2px;*/
+/*}*/
+
+.navigation_container {
+  margin: 0 auto;
+  width: 80%;
+  flex-direction: column;
+}
+
+.rectangle {
+  background: #546e7a;
+  height: 62px;
+  width: 100%;
+  position: relative;
+  -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  z-index: 500; /* the stack order: foreground */
+  margin: 3em 0;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.l-triangle-top {
+  margin-top: 6px;
+  border-color: #546e7a transparent transparent;
+  border-style:solid;
+  border-width:50px;
+  height:0px;
+  width:0px;
+  position: relative;
+  float: left;
+  top: 1px;
+  left: -50px;
+}
+
+.l-triangle-bottom {
+  border-radius: 0 0 30% 0;
+  margin-top: 6px;
+  border-color: transparent transparent #546e7a;
+  border-style:solid;
+  border-width:50px;
+  height:0px;
+  width:0px;
+  position: relative;
+  float: left;
+  top: -40px;
+  left: -150px;
+}
+
+.r-triangle-top {
+  margin-top: 6px;
+  border-color: #546e7a transparent transparent;
+  border-style:solid;
+  border-width:50px;
+  height:0px;
+  width:0px;
+  position: relative;
+  float: right;
+  right: -45px;
+  top: -107px;
+}
+
+.r-triangle-bottom {
+  margin-top: 6px;
+  border-radius: 0 0 0 30%;
+  border-color: transparent transparent #546e7a;
+  border-style:solid;
+  border-width:50px;
+  height:0px;
+  width:0px;
+  position: relative;
+  float: right;
+  top: -149px;
+  right: -145px;
+}
+
+.l {
+  margin-left: 10px;
+}
+
+.r {
+  margin-right: 10px;
+}
