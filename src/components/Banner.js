@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import avatar from "../avatar.png";
+import {connect} from 'react-redux';
 
 const styles = {
   imageHolder: {
@@ -24,11 +24,14 @@ const styles = {
     top: "-10px",
     zIndex: "501",
     cursor: "pointer",
+    width: "70%",
+    display: "flex",
+    justifyContent: "flex-start"
   },
   bottomBorder: {
     borderBottomStyle: "dashed",
     borderBottom: "1",
-    height: "40px",
+    height: "60px",
     borderColor: "#ffffff",
     opacity: 0.5,
   },
@@ -49,9 +52,7 @@ class Banner extends Component {
   constructor() {
     super();
     this.state = {
-      avatar: avatar,
       placeholder: "Your Name",
-      name: "",
       editing: false,
       bottomBorder: {}
     };
@@ -66,14 +67,12 @@ class Banner extends Component {
     let reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onloadend = () => {
-      this.setState({
-        avatar: reader.result
-      });
+      this.props.handleImageInput(reader.result);
     }
   }
 
   nameInputHandler = (e) => {
-    this.setState({name: e.target.value});
+    this.props.handleNameInput(e.target.value);
   }
 
   editHandler = () => {
@@ -83,6 +82,7 @@ class Banner extends Component {
   }
 
   render() {
+    const {avatar, name} = this.props;
 
     return (
       <div className="navigation_container">
@@ -93,7 +93,7 @@ class Banner extends Component {
 
         <div className="rectangle">
           <div
-            style={{...styles.imageHolder, backgroundImage: `url(${this.state.avatar})`}} onClick={() => {
+            style={{...styles.imageHolder, backgroundImage: `url(${avatar})`}} onClick={() => {
             this.openFileBrowser("theFile")
           }}>
           </div>
@@ -111,12 +111,12 @@ class Banner extends Component {
               }}
             >
               <div style={{...this.state.bottomBorder, display: this.state.editing ? "none" : "block"}}>
-                <h1>{this.state.name !== "" ? this.state.name : "Your Name"}</h1>
+                <h1>{name !== "" ? name : "Your Name"}</h1>
               </div>
 
               <input className="input" id="input" type="text"
                      style={{...styles.input, display: this.state.editing ? "block" : "none"}}
-                     value={this.state.name}
+                     value={name}
                      autoComplete="off"
                      placeholder={this.state.placeholder}
                      onChange={(event) => {this.nameInputHandler(event)}}
@@ -137,4 +137,18 @@ class Banner extends Component {
   }
 }
 
-export default Banner;
+const mapStateToProps = state => {
+  return {
+    avatar: state.avatar,
+    name: state.name
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleNameInput: (value) => dispatch({type: "NAME", value: value}),
+    handleImageInput: (value) => dispatch({type: "AVATAR", value: value})
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Banner);
