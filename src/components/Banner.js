@@ -16,13 +16,45 @@ const styles = {
     borderRadius: "50%",
     borderColor: "#ffffff",
     cursor: "pointer"
+  },
+  nameHolder: {
+    position: "absolute",
+    color: "white",
+    left: "45%",
+    top: "-10px",
+    zIndex: "501",
+    cursor: "pointer",
+  },
+  bottomBorder: {
+    borderBottomStyle: "dashed",
+    borderBottom: "1",
+    height: "40px",
+    borderColor: "#ffffff",
+    opacity: 0.5,
+  },
+  input: {
+    fontSize: "30px",
+    fontWeight: "bold",
+    color: "#ffffff",
+    width: "80%",
+    border: "none",
+    padding: "23px 10px 0px 0px",
+    height: "35px",
+    borderBottom: "2px solid #ffffff",
+    backgroundColor: "inherit"
   }
 };
 
 class Banner extends Component {
   constructor() {
     super();
-    this.state = {avatar: avatar};
+    this.state = {
+      avatar: avatar,
+      placeholder: "Your Name",
+      name: "",
+      editing: false,
+      bottomBorder: {}
+    };
   }
 
   openFileBrowser = (id) => {
@@ -40,6 +72,14 @@ class Banner extends Component {
     }
   }
 
+  nameInputHandler = (e) => {
+    this.setState({name: e.target.value});
+  }
+
+  editHandler = () => {
+    this.setState({editing: true});
+  }
+
   render() {
     return (
       <div className="navigation_container">
@@ -55,8 +95,29 @@ class Banner extends Component {
           }}>
           </div>
           <div>
-            <div style={{position: "absolute", color: "white", left: "45%", top: "-10px", zIndex: "501"}}>
-              <h1>Nahid Islam</h1>
+            <div
+              style={{...styles.nameHolder}}
+              onMouseEnter={() => {
+                this.setState({bottomBorder: {...styles.bottomBorder}})
+              }}
+              onMouseLeave={() => {
+                this.setState({bottomBorder: {}})
+              }}
+              onClick={() => {
+                this.editHandler();
+              }}
+            >
+              <div style={{...this.state.bottomBorder, display: this.state.editing ? "none" : "block"}}>
+                <h1>{this.state.name !== "" ? this.state.name : "Your Name"}</h1>
+              </div>
+
+              <input className="input" id="input" type="text"
+                     style={{...styles.input, display: this.state.editing ? "block" : "none"}}
+                     value={this.state.name}
+                     placeholder={this.state.placeholder}
+                     onChange={(event) => {this.nameInputHandler(event)}}
+                     onBlur={() => {this.setState({editing: false})}}
+              />
             </div>
           </div>
         </div>

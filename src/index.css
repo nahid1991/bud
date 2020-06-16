@@ -128,3 +128,10 @@ code {
 .r {
   margin-right: 10px;
 }
+
+.input::placeholder {
+  color: #ffffff;
+  font-size: inherit;
+  opacity: 0.3;
+  font-weight: bold;
+}
