@@ -20,7 +20,7 @@ const styles = {
   nameHolder: {
     position: "absolute",
     color: "white",
-    left: "45%",
+    left: "41%",
     top: "-10px",
     zIndex: "501",
     cursor: "pointer",
@@ -78,9 +78,12 @@ class Banner extends Component {
 
   editHandler = () => {
     this.setState({editing: true});
+    document.getElementById("input").style.display = "block";
+    document.getElementById("input").focus();
   }
 
   render() {
+
     return (
       <div className="navigation_container">
         <div className="l">
@@ -114,6 +117,7 @@ class Banner extends Component {
               <input className="input" id="input" type="text"
                      style={{...styles.input, display: this.state.editing ? "block" : "none"}}
                      value={this.state.name}
+                     autoComplete="off"
                      placeholder={this.state.placeholder}
                      onChange={(event) => {this.nameInputHandler(event)}}
                      onBlur={() => {this.setState({editing: false})}}
