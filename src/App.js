@@ -1,14 +1,33 @@
 import React from 'react';
 import GeneralCv from "./components/GeneralCV";
 import './App.css';
-import {connect} from 'react-redux';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {history} from './configureStore';
+import {ConnectedRouter} from "connected-react-router";
 
-function App() {
+function App({context}) {
   return (
-    <div className="App">
-      <GeneralCv/>
-    </div>
+    <ConnectedRouter history={history} context={context}>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/bud" component={GeneralCv} />
+            <Route exact path="/bud/test" component={Test} />
+            <Route render={() => (<div>Are you lost?</div>)} />
+          </Switch>
+        </div>
+      </Router>
+    </ConnectedRouter>
   );
 }
 
-export default connect()(App);
+function Test() {
+  return (
+    <div>
+      Hello
+    </div>
+  )
+}
+
+
+export default App;

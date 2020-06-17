@@ -1,24 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import {Provider, ReactReduxContext} from 'react-redux';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import rootReducer from "./RootReducer";
+import configureStore from './configureStore';
 
-const store = createStore(
-  rootReducer, composeWithDevTools(
-    applyMiddleware(),
-// other store enhancers if any
-  )
-);
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App/>
+    <Provider store={store} context={ReactReduxContext}>
+      <App context={ReactReduxContext}/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

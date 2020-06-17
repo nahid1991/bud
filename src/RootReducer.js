@@ -1,9 +1,11 @@
 import avatar from './avatar.png';
+import {combineReducers} from 'redux';
+import {connectRouter} from 'connected-react-router';
 
-const rootReducer = function (state = {
-  avatar: avatar,
-  name: ""
-}, action) {
+  const rootReducer = function (state = {
+    avatar: avatar,
+    name: ""
+  }, action) {
   switch (action.type) {
     case "NAME":
       return {...state, name: action.value};
@@ -14,5 +16,10 @@ const rootReducer = function (state = {
   }
 };
 
-export default rootReducer;
+const createRootReducer = (history) => combineReducers({
+  router: connectRouter(history),
+  rootreducer: rootReducer
+});
+
+export default createRootReducer;
 

@@ -151,6 +151,7 @@ code {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 0 0 0 #ffffff;
+  text-decoration: none;
 }
 
 .btn-primary:hover {

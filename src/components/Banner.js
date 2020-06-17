@@ -139,8 +139,8 @@ class Banner extends Component {
 
 const mapStateToProps = state => {
   return {
-    avatar: state.avatar,
-    name: state.name
+    avatar: state.rootreducer.avatar,
+    name: state.rootreducer.name
   };
 };
 
