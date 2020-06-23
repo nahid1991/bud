@@ -4,24 +4,23 @@ import {connect} from 'react-redux';
 const styles = {
   imageHolder: {
     position: "absolute",
-    top: "-30%",
+    top: "-25%",
     marginLeft: "45px",
     zIndex: "501",
     height: "100px",
     width: "100px",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
     borderStyle: "solid",
     border: "20",
     borderRadius: "50%",
     borderColor: "#ffffff",
-    cursor: "pointer"
+    cursor: "pointer",
+    overflow: "hidden"
   },
   nameHolder: {
     position: "absolute",
     color: "white",
     left: "25%",
-    top: "-10px",
+    top: "-5px",
     zIndex: "501",
     cursor: "pointer",
     width: "70%",
@@ -41,7 +40,7 @@ const styles = {
     color: "#ffffff",
     width: "100%",
     border: "none",
-    padding: "23px 10px 0px 0px",
+    padding: "23px 12px 0px 0px",
     height: "35px",
     borderBottom: "2px solid #ffffff",
     backgroundColor: "inherit"
@@ -54,7 +53,8 @@ class Banner extends Component {
     this.state = {
       placeholder: "Your Name",
       editing: false,
-      bottomBorder: {}
+      bottomBorder: {},
+      height: false
     };
   }
 
@@ -81,6 +81,19 @@ class Banner extends Component {
     document.getElementById("input").focus();
   }
 
+  resizeImage = (e) => {
+    let img = document.createElement("img");
+    img.setAttribute("src", e.target.src);
+    let height = img.height;
+    let width = img.width;
+
+    if (width < height) {
+      this.setState({height: true});
+    } else {
+      this.setState({height: true});
+    }
+  }
+
   render() {
     const {avatar, name} = this.props;
 
@@ -93,9 +106,12 @@ class Banner extends Component {
 
         <div className="rectangle">
           <div
-            style={{...styles.imageHolder, backgroundImage: `url(${avatar})`}} onClick={() => {
+            style={{...styles.imageHolder}} onClick={() => {
             this.openFileBrowser("theFile")
           }}>
+            <img src={avatar} style={this.state.height ? {height: "100px"} : {width: "100px"}} onLoad={(event) => {
+              this.resizeImage(event)
+            }} alt={""}/>
           </div>
           <div>
             <div
@@ -119,8 +135,12 @@ class Banner extends Component {
                      value={name}
                      autoComplete="off"
                      placeholder={this.state.placeholder}
-                     onChange={(event) => {this.nameInputHandler(event)}}
-                     onBlur={() => {this.setState({editing: false})}}
+                     onChange={(event) => {
+                       this.nameInputHandler(event)
+                     }}
+                     onBlur={() => {
+                       this.setState({editing: false})
+                     }}
               />
             </div>
           </div>

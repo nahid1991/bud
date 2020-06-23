@@ -1,5 +1,5 @@
 import React from 'react';
-import GeneralCv from "./components/GeneralCV";
+import GeneralCv from "./components/General/GeneralCV";
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {history} from './configureStore';
