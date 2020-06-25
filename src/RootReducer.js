@@ -4,7 +4,12 @@ import {connectRouter} from 'connected-react-router';
 
   const rootReducer = function (state = {
     avatar: avatar,
-    name: ""
+    name: "",
+    generalInformation: {
+      firstName: "",
+      lastName: "",
+      dateOfBirth: "",
+    }
   }, action) {
   switch (action.type) {
     case "NAME":
