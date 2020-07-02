@@ -8,8 +8,9 @@ import PersonalInformation from "./PersonalInformation";
 
 class GeneralCv extends Component {
   handleDownload = () => {
+    // console.log(JSON.stringify(this.props.values));
     axios.post('http://localhost:8000/api/v1/process-pdf',
-      {name: this.props.name, avatar: this.props.avatar})
+      {...this.props.values})
       .then(function (response) {
         const linkSource = `data:application/pdf;base64,${response.data.pdf}`;
         const downloadLink = document.createElement("a");
@@ -45,8 +46,7 @@ class GeneralCv extends Component {
 
 const mapStateToProps = state => {
   return {
-    avatar: state.rootreducer.avatar,
-    name: state.rootreducer.name
+    values: state.rootreducer
   };
 };
 

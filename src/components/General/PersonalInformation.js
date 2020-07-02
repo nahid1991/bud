@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import Label from "./Widgets/Label";
+import Input from "./Widgets/Input";
 
 const styles = {
   root: {
     display: "flex",
     flexWrap: "wrap",
-    flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-around",
     marginTop: "-100px"
   },
   inputContainer: {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "flex-start",
-    marginTop: "-100px"
+    marginTop: "-90px"
   },
   labels: {
     width: "100%",
@@ -39,36 +40,42 @@ const styles = {
 
 class PersonalInformation extends Component {
   render() {
+    const {firstName, lastName, dob, nationality, phone, email, linkedIn, address, handleInputs} = this.props;
+
     return (
       <div style={{...styles.root, margin: "0 auto", width: "85%"}}>
         <div style={{...styles.inputContainer, width: "40%"}}>
           <div style={{width: "30%"}}>
-            <div style={styles.labels}>
-              <p style={styles.label}>First Name:</p>
-            </div>
-            <div style={styles.labels}>
-              <p style={styles.label}>Last Name:</p>
-            </div>
-            <div style={styles.labels}>
-              <p style={styles.label}>Date of birth:</p>
-            </div>
-            <div style={styles.labels}>
-              <p style={styles.label}>Nationality:</p>
-            </div>
+            {["First Name", "Last Name", "Date of birth", "Nationality"].map((value, index) =>
+            {
+              return <Label labelContainerStyle={styles.labels} labelStyle={styles.label} value={value} key={index}/>;
+            })}
           </div>
           <div style={{width: "70%"}}>
-            <div style={styles.labels}>
-              <input type="text" style={styles.inputField}/>
-            </div>
-            <div style={styles.labels}>
-              <input type="text" style={styles.inputField}/>
-            </div>
-            <div style={styles.labels}>
-              <input type="date" style={styles.inputField}/>
-            </div>
-            <div style={styles.labels}>
-              <input type="text" style={styles.inputField}/>
-            </div>
+            {[{type: "text", name: "first_name", value: firstName, onChange: handleInputs},
+              {type: "text", name: "last_name", value: lastName, onChange: handleInputs},
+              {type: "date", name: "dob", value: dob, onChange: handleInputs},
+              {type: "text", name: "nationality", value: nationality, onChange: handleInputs}].map((obj, index) => {
+                return <Input labelStyle={styles.labels} type={obj.type} name={obj.name} value={obj.value} key={index}
+                              onChange={obj.onChange} inputStyle={styles.inputField}/>
+            })}
+          </div>
+        </div>
+        <div style={{...styles.inputContainer, width: "50%"}}>
+          <div style={{width: "30%"}}>
+            {["Phone", "Email", "LinkedIn", "Address"].map((value, index) =>
+            {
+              return <Label labelContainerStyle={styles.labels} labelStyle={styles.label} value={value} key={index} />;
+            })}
+          </div>
+          <div style={{width: "70%"}}>
+            {[{type: "text", name: "phone", value: phone, onChange: handleInputs},
+              {type: "text", name: "email", value: email, onChange: handleInputs},
+              {type: "text", name: "linkedin", value: linkedIn, onChange: handleInputs},
+              {type: "text", name: "address", value: address, onChange: handleInputs}].map((obj, index) => {
+              return <Input labelStyle={styles.labels} type={obj.type} key={index} name={obj.name} value={obj.value}
+                            onChange={obj.onChange} inputStyle={styles.inputField}/>
+            })}
           </div>
         </div>
 
@@ -79,10 +86,14 @@ class PersonalInformation extends Component {
 
 const mapStateToProps = state => {
   return {
-    avatar: state.rootreducer.avatar,
-    name: state.rootreducer.name,
     generalInformation: state.rootreducer.generalInformation
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleInputs: (type, value) => dispatch({type: type, value: value})
   };
 }
 
-export default connect(mapStateToProps)(PersonalInformation);
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalInformation);

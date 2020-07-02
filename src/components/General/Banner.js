@@ -90,7 +90,7 @@ class Banner extends Component {
     if (width < height) {
       this.setState({height: true});
     } else {
-      this.setState({height: true});
+      this.setState({height: false});
     }
   }
 
@@ -106,12 +106,10 @@ class Banner extends Component {
 
         <div className="rectangle">
           <div
-            style={{...styles.imageHolder}} onClick={() => {
+            style={{...styles.imageHolder, backgroundImage: `url(${avatar})`,
+              backgroundRepeat: "no-repeat", backgroundSize: "cover"}} onClick={() => {
             this.openFileBrowser("theFile")
           }}>
-            <img src={avatar} style={this.state.height ? {height: "100px"} : {width: "100px"}} onLoad={(event) => {
-              this.resizeImage(event)
-            }} alt={""}/>
           </div>
           <div>
             <div
