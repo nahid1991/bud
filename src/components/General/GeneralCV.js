@@ -9,7 +9,7 @@ import PersonalInformation from "./PersonalInformation";
 class GeneralCv extends Component {
   handleDownload = () => {
     // console.log(JSON.stringify(this.props.values));
-    axios.post('http://localhost:8000/api/v1/process-pdf',
+    axios.post('https://secret-castle-60004.herokuapp.com/api/v1/process-pdf',
       {...this.props.values})
       .then(function (response) {
         const linkSource = `data:application/pdf;base64,${response.data.pdf}`;
