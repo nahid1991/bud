@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import {connect} from "react-redux";
 import axios from 'axios';
 import PersonalInformation from "./PersonalInformation";
+import SectionHeader from "./Widgets/SectionHeader";
 
 // import {Link} from 'react-router-dom';
 
@@ -30,6 +31,7 @@ class GeneralCv extends Component {
       <div className="root">
         <Banner/>
         <PersonalInformation/>
+        <SectionHeader/>
         <div style={{
           width: "100%", flexDirection: "column", display: "flex",
           justifyContent: "flex-end", alignItems: "center", marginRight: "0px"
