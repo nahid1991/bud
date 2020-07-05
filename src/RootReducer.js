@@ -53,9 +53,14 @@ import { v4 as uuidv4 } from 'uuid';
           return w.id !== action.value;
         })};
     case "EDIT_EXP":
+      let selectedObject = state.workExperience.filter(w => {
+        return w.id === action.value.id;
+      })[0];
+      selectedObject[action.value.e.target.name] = action.value.e.target.value;
+
       return {...state, workExperience: [...state.workExperience.filter(w => {
         return w.id !== action.value.id
-        }), action.value]};
+        }), selectedObject]};
     case "ADD_EXP":
       return {...state, workExperience: [...state.workExperience, {
         id: uuidv4(),

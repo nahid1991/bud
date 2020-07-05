@@ -68,20 +68,8 @@ class Experience extends Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      id: this.props.id,
-      from: this.props.from,
-      to: this.props.to,
-      title: this.props.title,
-      address: this.props.address,
-      description: this.props.description
-    })
-  }
-
   handleChange = (e) => {
-    this.setState({[e.target.name]: e.target.value});
-    this.props.onChange("EDIT_EXP", this.state);
+    this.props.onChange("EDIT_EXP", {id: this.props.id, e: e});
   };
 
   render() {
@@ -94,11 +82,11 @@ class Experience extends Component {
           </div>
           <div style={{width: "50%"}}>
             <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"month"} name={"from"}
-                   placeholder={"From"} onChange={this.handleChange} value={this.state.from}/>
+                   placeholder={"From"} onChange={this.handleChange} value={this.props.from}/>
             <Input labelStyle={{...styles.dateLabels}} inputStyle={styles.inputField}
-                   type={this.state.present === true ? "text": "month"} name={"to"}
-                   placeholder={"To"} onChange={this.handleChange} disabled={this.state.present}
-                   value={this.state.to}/>
+                   type={"month"} name={"to"}
+                   placeholder={"To"} onChange={this.handleChange}
+                   value={this.props.to}/>
             <small>Leave "To" blank if present</small>
           </div>
         </div>
@@ -149,7 +137,7 @@ class Experience extends Component {
               this.handleChange(event);
             }}
                    name="address"
-                   placeholder={"Address"}/>
+                   placeholder={"Name and address"}/>
             <input type="text" style={{
               padding: "0 0 0 0",
               marginLeft: "15px",
@@ -162,7 +150,7 @@ class Experience extends Component {
               this.handleChange(event);
             }}
                    name={"description"}
-                   placeholder={"Description"}/>
+                   placeholder={"Job description"}/>
           </div>
         </div>
         <div style={{width: "2%", marginTop: "10px"}}>
