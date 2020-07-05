@@ -30,7 +30,6 @@ import { v4 as uuidv4 } from 'uuid';
       {
         id: uuidv4(),
         from: "",
-        to: "",
         title: "",
         address: ""
       }
@@ -96,7 +95,6 @@ import { v4 as uuidv4 } from 'uuid';
       return {...state, education: [...state.education, {
           id: uuidv4(),
           from: "",
-          to: "",
           title: "",
           address: ""
         }]}

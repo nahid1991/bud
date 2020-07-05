@@ -58,14 +58,6 @@ const styles = {
 class Experience extends Component {
   constructor() {
     super();
-    this.state = {
-      id: "",
-      from: "",
-      to: "",
-      title: "",
-      address: "",
-      description: ""
-    }
   }
 
   handleChange = (e) => {

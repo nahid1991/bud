@@ -58,13 +58,6 @@ const styles = {
 class Education extends Component {
   constructor() {
     super();
-    this.state = {
-      id: "",
-      from: "",
-      to: "",
-      title: "",
-      address: ""
-    }
   }
 
   handleChange = (e) => {
@@ -77,12 +70,7 @@ class Education extends Component {
         <div style={{...styles.firstCol, paddingTop: "9px"}}>
           <div style={{width: "75%"}}>
             <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"number"} name={"from"}
-                   placeholder={"From"} onChange={this.handleChange} value={this.props.from}/>
-            <Input labelStyle={{...styles.dateLabels}} inputStyle={styles.inputField}
-                   type={"number"} name={"to"}
-                   placeholder={"To"} onChange={this.handleChange}
-                   value={this.props.to}/>
-            <small>Leave "To" blank if present</small>
+                   placeholder={"Year"} onChange={this.handleChange} value={this.props.from}/>
           </div>
         </div>
         <div style={styles.secondCol}>
