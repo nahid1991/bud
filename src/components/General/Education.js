@@ -55,7 +55,7 @@ const styles = {
   }
 }
 
-class Experience extends Component {
+class Education extends Component {
   constructor() {
     super();
     this.state = {
@@ -63,28 +63,23 @@ class Experience extends Component {
       from: "",
       to: "",
       title: "",
-      address: "",
-      description: ""
+      address: ""
     }
   }
 
   handleChange = (e) => {
-    this.props.onChange("EDIT_EXP", {id: this.props.id, e: e});
+    this.props.onChange("EDIT_EDU", {id: this.props.id, e: e});
   };
 
   render() {
     return (
       <div style={styles.root}>
-        <div style={styles.firstCol}>
-          <div style={{width: "50%", paddingLeft: "92px"}}>
-            <p style={{marginBottom: "0px", textAlign: "left"}}>From: </p>
-            <p style={{marginTop: "5px", textAlign: "left"}}>To: </p>
-          </div>
-          <div style={{width: "50%"}}>
-            <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"month"} name={"from"}
+        <div style={{...styles.firstCol, paddingTop: "9px"}}>
+          <div style={{width: "75%"}}>
+            <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"number"} name={"from"}
                    placeholder={"From"} onChange={this.handleChange} value={this.props.from}/>
             <Input labelStyle={{...styles.dateLabels}} inputStyle={styles.inputField}
-                   type={"month"} name={"to"}
+                   type={"number"} name={"to"}
                    placeholder={"To"} onChange={this.handleChange}
                    value={this.props.to}/>
             <small>Leave "To" blank if present</small>
@@ -139,24 +134,11 @@ class Experience extends Component {
             }}
                    name="address"
                    placeholder={"Name and address"}/>
-            <input type="text" style={{
-              padding: "0 0 0 0",
-              marginLeft: "15px",
-              outline: "none",
-              border: "none",
-              borderBottom: "1px solid #000000",
-              fontSize: "15px",
-              width: "100%",
-            }} onChange={(event) => {
-              this.handleChange(event);
-            }}
-                   name={"description"}
-                   placeholder={"Job description"}/>
           </div>
         </div>
         <div style={{width: "2%", marginTop: "10px"}}>
           <button className="btn-primary" onClick={() => {
-            this.props.onDelete("DELETE_EXP", this.props.id)
+            this.props.onDelete("DELETE_EDU", this.props.id)
           }}>
             DELETE
           </button>
@@ -165,4 +147,4 @@ class Experience extends Component {
   }
 }
 
-export default Experience;
+export default Education;

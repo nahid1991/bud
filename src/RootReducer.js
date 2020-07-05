@@ -25,6 +25,15 @@ import { v4 as uuidv4 } from 'uuid';
         address: "",
         description: ""
       }
+    ],
+    education: [
+      {
+        id: uuidv4(),
+        from: "",
+        to: "",
+        title: "",
+        address: ""
+      }
     ]
   }, action) {
   switch (action.type) {
@@ -48,19 +57,19 @@ import { v4 as uuidv4 } from 'uuid';
       return {...state, generalInformation: {...state.generalInformation, linkedIn: action.value}};
     case "ADDRESS":
       return {...state, generalInformation: {...state.generalInformation, address: action.value}};
-    case "DELETE_EXPERIENCE":
+    case "DELETE_EXP":
       return {...state, workExperience: state.workExperience.filter(w => {
           return w.id !== action.value;
         })};
     case "EDIT_EXP":
-      let selectedObject = state.workExperience.filter(w => {
+      const selectedExp = state.workExperience.filter(w => {
         return w.id === action.value.id;
       })[0];
-      selectedObject[action.value.e.target.name] = action.value.e.target.value;
+      selectedExp[action.value.e.target.name] = action.value.e.target.value;
 
       return {...state, workExperience: [...state.workExperience.filter(w => {
         return w.id !== action.value.id
-        }), selectedObject]};
+        }), selectedExp]};
     case "ADD_EXP":
       return {...state, workExperience: [...state.workExperience, {
         id: uuidv4(),
@@ -69,7 +78,28 @@ import { v4 as uuidv4 } from 'uuid';
           title: "",
           address: "",
           description: ""
-      }]}
+      }]};
+    case "DELETE_EDU":
+      return {...state, education: state.education.filter(w => {
+          return w.id !== action.value;
+        })};
+    case "EDIT_EDU":
+      const selectedEdu = state.education.filter(w => {
+        return w.id === action.value.id;
+      })[0];
+      selectedEdu[action.value.e.target.name] = action.value.e.target.value;
+
+      return {...state, education: [...state.education.filter(w => {
+          return w.id !== action.value.id
+        }), selectedEdu]};
+    case "ADD_EDU":
+      return {...state, education: [...state.education, {
+          id: uuidv4(),
+          from: "",
+          to: "",
+          title: "",
+          address: ""
+        }]}
     default:
       return state;
   }

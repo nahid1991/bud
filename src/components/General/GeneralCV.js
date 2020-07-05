@@ -5,6 +5,7 @@ import axios from 'axios';
 import PersonalInformation from "./PersonalInformation";
 import SectionHeader from "./Widgets/SectionHeader";
 import Experiences from "./Experiences";
+import Educations from "./Educations";
 
 // import {Link} from 'react-router-dom';
 
@@ -33,6 +34,8 @@ class GeneralCv extends Component {
         <PersonalInformation/>
         <SectionHeader title={"Work experience"} icon={"work"}/>
         <Experiences />
+        <SectionHeader title={"Education"} icon={"education"}/>
+        <Educations/>
         <hr/>
         <div style={{
           width: "100%", flexDirection: "column", display: "flex",
