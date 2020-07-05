@@ -56,10 +56,6 @@ const styles = {
 }
 
 class Education extends Component {
-  constructor() {
-    super();
-  }
-
   handleChange = (e) => {
     this.props.onChange("EDIT_EDU", {id: this.props.id, e: e});
   };

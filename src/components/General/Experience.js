@@ -56,10 +56,6 @@ const styles = {
 }
 
 class Experience extends Component {
-  constructor() {
-    super();
-  }
-
   handleChange = (e) => {
     this.props.onChange("EDIT_EXP", {id: this.props.id, e: e});
   };

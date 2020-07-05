@@ -1,5 +1,4 @@
 import work from './work.png';
-import education from './education.png';
 
 const IconSelector = (imageString) => {
   switch (imageString) {

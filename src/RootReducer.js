@@ -61,14 +61,14 @@ import { v4 as uuidv4 } from 'uuid';
           return w.id !== action.value;
         })};
     case "EDIT_EXP":
-      const selectedExp = state.workExperience.filter(w => {
-        return w.id === action.value.id;
-      })[0];
-      selectedExp[action.value.e.target.name] = action.value.e.target.value;
+      const selectedExp = state.workExperience.map(w => {
+        if(w.id === action.value.id) {
+          w[action.value.e.target.name] = action.value.e.target.value;
+        }
+        return w;
+      });
 
-      return {...state, workExperience: [...state.workExperience.filter(w => {
-        return w.id !== action.value.id
-        }), selectedExp]};
+      return {...state, workExperience: [...selectedExp]};
     case "ADD_EXP":
       return {...state, workExperience: [...state.workExperience, {
         id: uuidv4(),
@@ -83,14 +83,14 @@ import { v4 as uuidv4 } from 'uuid';
           return w.id !== action.value;
         })};
     case "EDIT_EDU":
-      const selectedEdu = state.education.filter(w => {
-        return w.id === action.value.id;
-      })[0];
-      selectedEdu[action.value.e.target.name] = action.value.e.target.value;
+      const selectedEdu = state.education.map(w => {
+        if(w.id === action.value.id) {
+          w[action.value.e.target.name] = action.value.e.target.value;
+        }
+        return w;
+      });
 
-      return {...state, education: [...state.education.filter(w => {
-          return w.id !== action.value.id
-        }), selectedEdu]};
+      return {...state, education: [...selectedEdu]};
     case "ADD_EDU":
       return {...state, education: [...state.education, {
           id: uuidv4(),
