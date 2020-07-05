@@ -40,7 +40,7 @@ const styles = {
 
 class PersonalInformation extends Component {
   onChange = (e) => {
-    this.props.onChange(e.target.name.toUpperCase(), e.target.value)
+    this.props.handleInputs(e.target.name.toUpperCase(), e.target.value)
   };
 
   render() {
