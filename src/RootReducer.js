@@ -5,16 +5,16 @@ import { v4 as uuidv4 } from 'uuid';
 
   const rootReducer = function (state = {
     avatar: avatar,
-    name: "Nahid Islam",
+    name: "",
     generalInformation: {
-      firstName: "Nahid",
-      lastName: "Islam",
-      dob: "1993-03-06",
-      nationality: "Bangladeshi",
-      phone: "+8801799783804",
-      email: "nahidshaiket10300@gmail.com",
-      linkedIn: "https://www.linkedin.com/in/nahid-islam-shaiket-5a079ba3/",
-      address: "80 East Tejturi Bazar, Tejgaon, Dhaka, Bangladesh"
+      firstName: "",
+      lastName: "",
+      dob: "",
+      nationality: "",
+      phone: "",
+      email: "",
+      linkedIn: "",
+      address: ""
     },
     workExperience: [
       {
