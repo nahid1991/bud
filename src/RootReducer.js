@@ -1,20 +1,31 @@
 import avatar from './avatar.png';
 import {combineReducers} from 'redux';
 import {connectRouter} from 'connected-react-router';
+import { v4 as uuidv4 } from 'uuid';
 
   const rootReducer = function (state = {
     avatar: avatar,
-    name: "",
+    name: "Nahid Islam",
     generalInformation: {
-      firstName: "",
-      lastName: "",
-      dob: "",
-      nationality: "",
-      phone: "",
-      email: "",
-      linkedIn: "",
-      address: ""
-    }
+      firstName: "Nahid",
+      lastName: "Islam",
+      dob: "1993-03-06",
+      nationality: "Bangladeshi",
+      phone: "+8801799783804",
+      email: "nahidshaiket10300@gmail.com",
+      linkedIn: "https://www.linkedin.com/in/nahid-islam-shaiket-5a079ba3/",
+      address: "80 East Tejturi Bazar, Tejgaon, Dhaka, Bangladesh"
+    },
+    workExperience: [
+      {
+        id: uuidv4(),
+        from: "",
+        to: "",
+        title: "",
+        address: "",
+        description: ""
+      }
+    ]
   }, action) {
   switch (action.type) {
     case "NAME":
@@ -37,6 +48,23 @@ import {connectRouter} from 'connected-react-router';
       return {...state, generalInformation: {...state.generalInformation, linkedIn: action.value}};
     case "ADDRESS":
       return {...state, generalInformation: {...state.generalInformation, address: action.value}};
+    case "DELETE_EXPERIENCE":
+      return {...state, workExperience: state.workExperience.filter(w => {
+          return w.id !== action.value;
+        })};
+    case "EDIT_EXP":
+      return {...state, workExperience: [...state.workExperience.filter(w => {
+        return w.id !== action.value.id
+        }), action.value]};
+    case "ADD_EXP":
+      return {...state, workExperience: [...state.workExperience, {
+        id: uuidv4(),
+          from: "",
+          to: "",
+          title: "",
+          address: "",
+          description: ""
+      }]}
     default:
       return state;
   }

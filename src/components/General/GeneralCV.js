@@ -4,12 +4,12 @@ import {connect} from "react-redux";
 import axios from 'axios';
 import PersonalInformation from "./PersonalInformation";
 import SectionHeader from "./Widgets/SectionHeader";
+import Experiences from "./Experiences";
 
 // import {Link} from 'react-router-dom';
 
 class GeneralCv extends Component {
   handleDownload = () => {
-    // console.log(JSON.stringify(this.props.values));
     axios.post('http://localhost:8000/api/v1/process-pdf',
       {...this.props.values})
       .then(function (response) {
@@ -31,7 +31,9 @@ class GeneralCv extends Component {
       <div className="root">
         <Banner/>
         <PersonalInformation/>
-        <SectionHeader/>
+        <SectionHeader title={"Work experience"} icon={"work"}/>
+        <Experiences />
+        <hr/>
         <div style={{
           width: "100%", flexDirection: "column", display: "flex",
           justifyContent: "flex-end", alignItems: "center", marginRight: "0px"

@@ -39,8 +39,13 @@ const styles = {
 };
 
 class PersonalInformation extends Component {
+  onChange = (e) => {
+    this.props.onChange(e.target.name.toUpperCase(), e.target.value)
+  };
+
   render() {
-    const {firstName, lastName, dob, nationality, phone, email, linkedIn, address, handleInputs} = this.props;
+    const {firstName, lastName, dob, nationality, phone, email, linkedIn, address}
+      = this.props.generalInformation;
 
     return (
       <div style={{...styles.root, margin: "0 auto", width: "85%"}}>
@@ -52,10 +57,10 @@ class PersonalInformation extends Component {
             })}
           </div>
           <div style={{width: "70%"}}>
-            {[{type: "text", name: "first_name", value: firstName, onChange: handleInputs},
-              {type: "text", name: "last_name", value: lastName, onChange: handleInputs},
-              {type: "date", name: "dob", value: dob, onChange: handleInputs},
-              {type: "text", name: "nationality", value: nationality, onChange: handleInputs}].map((obj, index) => {
+            {[{type: "text", name: "first_name", value: firstName, onChange: this.onChange},
+              {type: "text", name: "last_name", value: lastName, onChange: this.onChange},
+              {type: "date", name: "dob", value: dob, onChange: this.onChange},
+              {type: "text", name: "nationality", value: nationality, onChange: this.onChange}].map((obj, index) => {
                 return <Input labelStyle={styles.labels} type={obj.type} name={obj.name} value={obj.value} key={index}
                               onChange={obj.onChange} inputStyle={styles.inputField}/>
             })}
@@ -69,10 +74,10 @@ class PersonalInformation extends Component {
             })}
           </div>
           <div style={{width: "70%"}}>
-            {[{type: "text", name: "phone", value: phone, onChange: handleInputs},
-              {type: "text", name: "email", value: email, onChange: handleInputs},
-              {type: "text", name: "linkedin", value: linkedIn, onChange: handleInputs},
-              {type: "text", name: "address", value: address, onChange: handleInputs}].map((obj, index) => {
+            {[{type: "text", name: "phone", value: phone, onChange: this.onChange},
+              {type: "text", name: "email", value: email, onChange: this.onChange},
+              {type: "text", name: "linkedin", value: linkedIn, onChange: this.onChange},
+              {type: "text", name: "address", value: address, onChange: this.onChange}].map((obj, index) => {
               return <Input labelStyle={styles.labels} type={obj.type} key={index} name={obj.name} value={obj.value}
                             onChange={obj.onChange} inputStyle={styles.inputField}/>
             })}

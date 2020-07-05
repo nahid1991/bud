@@ -1,4 +1,5 @@
 import React from "react";
+import IconSelector from "../../../IconSelector";
 
 const styles = {
   imageHolder: {
@@ -12,7 +13,6 @@ const styles = {
     border: "10",
     borderRadius: "50%",
     borderColor: "#ffffff",
-    cursor: "pointer",
     overflow: "hidden",
     backgroundColor: "inherit"
   },
@@ -22,7 +22,6 @@ const styles = {
     height: "auto",
     width: "100%",
     position: "relative",
-    boxShadow: "0px 0px 4px rgba(0,0,0,0.55)",
     zIndex: "500",
     margin: "0 auto",
     flexDirection: "column",
@@ -60,7 +59,17 @@ const styles = {
     float: "right",
     top: "-102px",
     right: "-148px"
-  }
+  },
+  nameHolder: {
+    position: "absolute",
+    color: "white",
+    left: "25%",
+    top: "-5px",
+    zIndex: "501",
+    width: "70%",
+    display: "flex",
+    justifyContent: "flex-start"
+  },
 };
 
 const SectionHeader = (props) => {
@@ -69,9 +78,14 @@ const SectionHeader = (props) => {
       <div style={styles.rectangleSection}>
         <div
           style={{
-            ...styles.imageHolder, backgroundImage: `url(${props.image})`,
-            backgroundRepeat: "no-repeat", backgroundSize: "cover"
+            ...styles.imageHolder, backgroundImage: `url(${IconSelector(props.icon)})`,
+            backgroundRepeat: "no-repeat", backgroundSize: "60%", backgroundPosition: "center"
           }}>
+        </div>
+        <div>
+          <div style={{...styles.nameHolder}}>
+            <p><b>{props.title}</b></p>
+          </div>
         </div>
       </div>
       <div className="r">
