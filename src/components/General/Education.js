@@ -124,7 +124,7 @@ class Education extends Component {
           <button className="btn-primary" onClick={() => {
             this.props.onDelete("DELETE_EDU", this.props.id)
           }}>
-            DELETE
+            <i className="fa fa-trash"></i>
           </button>
         </div>
       </div>);

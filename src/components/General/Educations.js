@@ -25,7 +25,7 @@ class Educations extends Component {
           />
         })}
         <div style={{width: "100%", margin: "10px 0 10px 55px"}}>
-          <button className="btn-simple" style={{width: "100%"}}
+          <button className="btn-simple" style={{width: "80%"}}
                   onClick={() => this.props.handleEduAdd("ADD_EDU")}>ADD EDUCATION</button>
         </div>
       </div>

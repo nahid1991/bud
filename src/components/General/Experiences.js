@@ -10,9 +10,9 @@ const styles = {
     justifyContent: "flex-start",
     marginRight: "0px",
     paddingLeft: "20px",
-    flexDirection: "column"
+    flexDirection: "column",
   }
-}
+};
 
 class Experiences extends Component {
   render() {
@@ -25,8 +25,8 @@ class Experiences extends Component {
           />
         })}
         <div style={{width: "100%", margin: "10px 0 10px 55px"}}>
-          <button className="btn-simple" style={{width: "100%"}}
-            onClick={() => this.props.handleExpAdd("ADD_EXP")}>ADD EXP</button>
+          <button className="btn-simple" style={{width: "80%"}}
+            onClick={() => this.props.handleExpAdd("ADD_EXP")}>ADD EXPERIENCE</button>
         </div>
       </div>
     );

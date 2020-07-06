@@ -6,12 +6,13 @@ import PersonalInformation from "./PersonalInformation";
 import SectionHeader from "./Widgets/SectionHeader";
 import Experiences from "./Experiences";
 import Educations from "./Educations";
+import Skills from "./Skills";
 
 // import {Link} from 'react-router-dom';
 
 class GeneralCv extends Component {
   handleDownload = () => {
-    axios.post(' https://secret-castle-60004.herokuapp.com/api/v1/process-pdf',
+    axios.post(' http://localhost:8000/api/v1/process-pdf',
       {...this.props.values})
       .then(function (response) {
         const linkSource = `data:application/pdf;base64,${response.data.pdf}`;
@@ -36,6 +37,8 @@ class GeneralCv extends Component {
         <Experiences />
         <SectionHeader title={"Education"} icon={"education"}/>
         <Educations/>
+        <SectionHeader title={"Skills"} icon={"skill"} />
+        <Skills />
         <hr/>
         <div style={{
           width: "100%", flexDirection: "column", display: "flex",

@@ -13,16 +13,11 @@ code {
 }
 
 .root {
-  flex: 1;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: flex-start;
   margin: 10px 10% 10px 10%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 80%;
   padding: 10px;
   border-radius: 10px;
-  justify-content: center;
 }
 
 .navigation_container {
@@ -175,6 +170,7 @@ code {
   cursor: pointer;
   box-shadow: 0 0 0 0 #ffffff;
   text-decoration: none;
+  outline: none;
 }
 
 .btn-primary:hover {
@@ -186,6 +182,7 @@ code {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 10px 5px 0 #9e9e9e;
+  outline: none;
 }
 
 .btn-primary:active {
@@ -197,6 +194,7 @@ code {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 10px 5px 0 #9e9e9e;
+  outline: none;
 }
 
 .experience_title {
@@ -221,6 +219,7 @@ code {
   cursor: pointer;
   box-shadow: 0 0 0 0 #ffffff;
   text-decoration: none;
+  outline: none;
 }
 
 .btn-simple:hover {
@@ -232,6 +231,7 @@ code {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 10px 5px 0 #9e9e9e;
+  outline: none;
 }
 
 .btn-simple:active {
@@ -243,5 +243,53 @@ code {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 10px 5px 0 #9e9e9e;
+  outline: none;
+}
+
+.btn-transparent {
+  color: #03a9f4;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 10px 10px 10px 10px;
+  border-color: #0288d1;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 #ffffff;
+  text-decoration: none;
+  outline: none;
+}
+
+.btn-transparent:hover {
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #03a9f4;
+  padding: 10px 10px 10px 10px;
+  border-color: #0288d1;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 5px 0 #9e9e9e;
+  outline: none;
+}
+
+.btn-transparent:active {
+  color: #000000;
+  font-weight: bold;
+  background-color: #01579b;
+  padding: 10px 10px 10px 10px;
+  border-color: #0288d1;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 5px 0 #9e9e9e;
+  outline: none;
+}
+
+.checked {
+  color: orange;
+  cursor: pointer;
+}
+
+.unchecked {
+  color: #546e7a;
+  cursor: pointer;
 }
 
