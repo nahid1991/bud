@@ -102,7 +102,8 @@ class Experience extends Component {
                   this.handleChange(event);
                 }}
                        name="title"
-                       placeholder={"Title"}/>
+                       placeholder={"Title"}
+                       value={this.props.title}/>
               </li>
             </ul>
           </div>
@@ -126,7 +127,8 @@ class Experience extends Component {
               this.handleChange(event);
             }}
                    name="address"
-                   placeholder={"Name and address"}/>
+                   placeholder={"Name and address"}
+                   value={this.props.address}/>
             <input type="text" style={{
               padding: "0 0 0 0",
               marginLeft: "15px",
@@ -139,7 +141,8 @@ class Experience extends Component {
               this.handleChange(event);
             }}
                    name={"description"}
-                   placeholder={"Job description"}/>
+                   placeholder={"Short description"}
+                   value={this.props.description}/>
           </div>
         </div>
         <div style={{width: "2%", marginTop: "10px"}}>

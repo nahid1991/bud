@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Input from "./Widgets/Input";
 
+
 const styles = {
   root: {
     width: "100%",
@@ -55,18 +56,28 @@ const styles = {
   }
 }
 
-class Education extends Component {
+class Certification extends Component {
   handleChange = (e) => {
-    this.props.onChange("EDIT_EDU", {id: this.props.id, e: e});
+    console.log(e.target.name, e.target.value);
+    this.props.onChange("EDIT_CERTIFICATION", {id: this.props.id, e: e});
   };
 
   render() {
     return (
       <div style={styles.root}>
-        <div style={{...styles.firstCol, paddingTop: "9px"}}>
-          <div style={{width: "75%"}}>
-            <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"number"} name={"from"}
-                   placeholder={"Year"} onChange={this.handleChange} value={this.props.from}/>
+        <div style={styles.firstCol}>
+          <div style={{width: "50%", paddingLeft: "92px"}}>
+            <p style={{marginBottom: "0px", textAlign: "left"}}>Issue date: </p>
+            <p style={{marginTop: "5px", textAlign: "left"}}>Expire date: </p>
+          </div>
+          <div style={{width: "50%"}}>
+            <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"date"} name={"issueDate"}
+                   placeholder={""} onChange={this.handleChange} value={this.props.issueDate}/>
+            <Input labelStyle={{...styles.dateLabels}} inputStyle={styles.inputField}
+                   type={"date"} name={"expireDate"}
+                   placeholder={""} onChange={this.handleChange}
+                   value={this.props.expireDate}/>
+            <small>Leave "Expire" blank if N/A</small>
           </div>
         </div>
         <div style={styles.secondCol}>
@@ -117,14 +128,28 @@ class Education extends Component {
             }} onChange={(event) => {
               this.handleChange(event);
             }}
-                   name="address"
-                   placeholder={"Name and address"}
-                   value={this.props.address}/>
+                   name="institute"
+                   placeholder={"Institute"}
+                   value={this.props.institute}/>
+            <input type="text" style={{
+              padding: "0 0 0 0",
+              marginLeft: "15px",
+              outline: "none",
+              border: "none",
+              borderBottom: "1px solid #000000",
+              fontSize: "15px",
+              width: "100%",
+            }} onChange={(event) => {
+              this.handleChange(event);
+            }}
+                   name={"link"}
+                   placeholder={"Link"}
+                   value={this.props.link}/>
           </div>
         </div>
         <div style={{width: "2%", marginTop: "10px"}}>
           <button className="btn-primary" onClick={() => {
-            this.props.onDelete("DELETE_EDU", this.props.id)
+            this.props.onChange("DELETE_CERTIFICATION", this.props.id)
           }}>
             <i className="fa fa-trash"></i>
           </button>
@@ -133,4 +158,4 @@ class Education extends Component {
   }
 }
 
-export default Education;
+export default Certification;

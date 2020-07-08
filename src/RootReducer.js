@@ -14,7 +14,7 @@ const rootReducer = function (state = {
     phone: "",
     email: "",
     linkedIn: "",
-    address: ""
+    address: "",
   },
   workExperience: [
     {
@@ -45,6 +45,35 @@ const rootReducer = function (state = {
           rating: 0
         }
       ]
+    }
+  ],
+  certifications: [
+    {
+      id: uuidv4(),
+      issueDate: "",
+      title: "",
+      institute: "",
+      expireDate: "",
+      link: ""
+    }
+  ],
+  publications: [
+    {
+      id: uuidv4(),
+      issueYear: "",
+      title: "",
+      publisher: "",
+      link: ""
+    }
+  ],
+  references: [
+    {
+      id: uuidv4(),
+      name: "",
+      address: "",
+      phoneNumber: "",
+      email: "",
+      designation: ""
     }
   ]
 }, action) {
@@ -181,6 +210,89 @@ const rootReducer = function (state = {
           }
           return w;
         })};
+    case "ADD_CERTIFICATION":
+      return {
+        ...state, certifications: [...state.certifications,
+          {
+            id: uuidv4(),
+            issueDate: "",
+            title: "",
+            institute: "",
+            expireDate: "",
+            link: ""
+          }
+        ]
+      };
+    case "EDIT_CERTIFICATION":
+      return {
+        ...state, certifications: state.certifications.map(c => {
+          if (c.id === action.value.id) {
+            c[action.value.e.target.name] = action.value.e.target.value
+          }
+          return c;
+        })
+      };
+    case "DELETE_CERTIFICATION":
+      return {
+        ...state, certifications: state.certifications.filter(c => {
+          return c.id !== action.value
+        })
+      };
+    case "ADD_PUBLICATION":
+      return {
+        ...state, publications: [...state.publications,
+          {
+            id: uuidv4(),
+            issueYear: "",
+            title: "",
+            publisher: "",
+            link: ""
+          }
+        ]
+      };
+    case "EDIT_PUBLICATION":
+      return {
+        ...state, publications: state.publications.map(c => {
+          if (c.id === action.value.id) {
+            c[action.value.e.target.name] = action.value.e.target.value
+          }
+          return c;
+        })
+      };
+    case "DELETE_PUBLICATION":
+      return {
+        ...state, publications: state.publications.filter(c => {
+          return c.id !== action.value
+        })
+      };
+    case "ADD_REFERENCE":
+      return {
+        ...state, references: [...state.references,
+          {
+            id: uuidv4(),
+            name: "",
+            address: "",
+            phoneNumber: "",
+            email: "",
+            designation: "",
+          }
+        ]
+      };
+    case "EDIT_REFERENCE":
+      return {
+        ...state, references: state.references.map(c => {
+          if (c.id === action.value.id) {
+            c[action.value.e.target.name] = action.value.e.target.value
+          }
+          return c;
+        })
+      };
+    case "DELETE_REFERENCE":
+      return {
+        ...state, references: state.references.filter(c => {
+          return c.id !== action.value
+        })
+      }
     default:
       return state;
   }

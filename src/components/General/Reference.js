@@ -55,18 +55,19 @@ const styles = {
   }
 }
 
-class Education extends Component {
+class Reference extends Component {
   handleChange = (e) => {
-    this.props.onChange("EDIT_EDU", {id: this.props.id, e: e});
+    console.log(e.target.name, e.target.value);
+    this.props.onChange("EDIT_REFERENCE", {id: this.props.id, e: e});
   };
 
   render() {
     return (
       <div style={styles.root}>
-        <div style={{...styles.firstCol, paddingTop: "9px"}}>
-          <div style={{width: "75%"}}>
-            <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"number"} name={"from"}
-                   placeholder={"Year"} onChange={this.handleChange} value={this.props.from}/>
+        <div style={styles.firstCol}>
+          <div style={{width: "100%", paddingLeft: "92px", marginTop: "15px"}}>
+            <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"text"} name={"name"}
+                   placeholder={"Referrer name"} onChange={this.handleChange} value={this.props.name}/>
           </div>
         </div>
         <div style={styles.secondCol}>
@@ -92,9 +93,10 @@ class Education extends Component {
                 }} onChange={(event) => {
                   this.handleChange(event);
                 }}
-                       name="title"
-                       placeholder={"Title"}
-                       value={this.props.title}/>
+                       name="designation"
+                       placeholder={"Designation"}
+                       value={this.props.designation}
+                />
               </li>
             </ul>
           </div>
@@ -118,13 +120,44 @@ class Education extends Component {
               this.handleChange(event);
             }}
                    name="address"
-                   placeholder={"Name and address"}
-                   value={this.props.address}/>
+                   placeholder={"Adresss"}
+                   value={this.props.address}
+            />
+            <input type="text" style={{
+              padding: "0 0 0 0",
+              marginLeft: "15px",
+              outline: "none",
+              border: "none",
+              borderBottom: "1px solid #000000",
+              fontSize: "15px",
+              width: "100%",
+            }} onChange={(event) => {
+              this.handleChange(event);
+            }}
+                   name={"phoneNumber"}
+                   placeholder={"Phone number"}
+                   value={this.props.phoneNumber}
+            />
+            <input type="text" style={{
+              padding: "0 0 0 0",
+              marginLeft: "15px",
+              outline: "none",
+              border: "none",
+              borderBottom: "1px solid #000000",
+              fontSize: "15px",
+              width: "100%",
+            }} onChange={(event) => {
+              this.handleChange(event);
+            }}
+                   name={"email"}
+                   placeholder={"Email"}
+                   value={this.props.email}
+            />
           </div>
         </div>
         <div style={{width: "2%", marginTop: "10px"}}>
           <button className="btn-primary" onClick={() => {
-            this.props.onDelete("DELETE_EDU", this.props.id)
+            this.props.onChange("DELETE_REFERENCE", this.props.id)
           }}>
             <i className="fa fa-trash"></i>
           </button>
@@ -133,4 +166,4 @@ class Education extends Component {
   }
 }
 
-export default Education;
+export default Reference;
