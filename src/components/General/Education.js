@@ -66,7 +66,7 @@ class Education extends Component {
         <div style={{...styles.firstCol, paddingTop: "9px"}}>
           <div style={{width: "75%"}}>
             <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"number"} name={"from"}
-                   placeholder={"Year"} onChange={this.handleChange} value={this.props.from}/>
+                   placeholder={"Year (Leave blank if present)"} onChange={this.handleChange} value={this.props.from}/>
           </div>
         </div>
         <div style={styles.secondCol}>
