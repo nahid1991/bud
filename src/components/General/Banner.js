@@ -51,10 +51,10 @@ class Banner extends Component {
   constructor() {
     super();
     this.state = {
-      placeholder: "Your Name",
       editing: false,
       bottomBorder: {},
-      height: false
+      height: false,
+      decreaseOpacity: false
     };
   }
 
@@ -65,37 +65,18 @@ class Banner extends Component {
 
   upload = (e) => {
     let reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.onloadend = () => {
-      this.props.handleImageInput(reader.result);
-    }
-  }
-
-  nameInputHandler = (e) => {
-    this.props.handleNameInput(e.target.value);
-  }
-
-  editHandler = () => {
-    this.setState({editing: true});
-    document.getElementById("input").style.display = "block";
-    document.getElementById("input").focus();
-  }
-
-  resizeImage = (e) => {
-    let img = document.createElement("img");
-    img.setAttribute("src", e.target.src);
-    let height = img.height;
-    let width = img.width;
-
-    if (width < height) {
-      this.setState({height: true});
-    } else {
-      this.setState({height: false});
+    try {
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onloadend = () => {
+        this.props.handleImageInput(reader.result);
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
 
   render() {
-    const {avatar, name} = this.props;
+    const {avatar, firstName, lastName} = this.props;
 
     return (
       <div className="navigation_container">
@@ -107,39 +88,23 @@ class Banner extends Component {
         <div className="rectangle">
           <div
             style={{...styles.imageHolder, backgroundImage: `url(${avatar})`,
+              color: this.state.decreaseOpacity ? "#000000" : "#ffffff",
+              opacity: this.state.decreaseOpacity ? "0.8" : "1",
               backgroundRepeat: "no-repeat", backgroundSize: "cover"}} onClick={() => {
             this.openFileBrowser("theFile")
-          }}>
+          }} onMouseEnter={() => {this.setState({decreaseOpacity: true})}}
+            onMouseLeave={() => {this.setState({decreaseOpacity: false})}}>
+            {this.state.decreaseOpacity ? "" : <div style={{height: "100%", width: "100%",
+              display: "flex", alignItems: "flex-end", justifyContent: "center"}}>
+              <p><i className="fa fa-camera"></i></p></div>}
           </div>
           <div>
             <div
               style={{...styles.nameHolder}}
-              onMouseEnter={() => {
-                this.setState({bottomBorder: {...styles.bottomBorder}})
-              }}
-              onMouseLeave={() => {
-                this.setState({bottomBorder: {}})
-              }}
-              onClick={() => {
-                this.editHandler();
-              }}
             >
-              <div style={{...this.state.bottomBorder, display: this.state.editing ? "none" : "block"}}>
-                <h1>{name !== "" ? name : "Type your name here"}</h1>
+              <div style={this.state.bottomBorder}>
+                <h1>{firstName + " " + lastName}</h1>
               </div>
-
-              <input className="input" id="input" type="text"
-                     style={{...styles.input, display: this.state.editing ? "block" : "none"}}
-                     value={name}
-                     autoComplete="off"
-                     placeholder={this.state.placeholder}
-                     onChange={(event) => {
-                       this.nameInputHandler(event)
-                     }}
-                     onBlur={() => {
-                       this.setState({editing: false})
-                     }}
-              />
             </div>
           </div>
         </div>
@@ -149,7 +114,8 @@ class Banner extends Component {
         </div>
         <div><input type="file" id="theFile" style={{display: "none"}} accept="image/*" onChange={(event) => {
           this.upload(event);
-        }}/></div>
+        }}/>
+        </div>
       </div>
     );
   }
@@ -158,13 +124,13 @@ class Banner extends Component {
 const mapStateToProps = state => {
   return {
     avatar: state.rootreducer.avatar,
-    name: state.rootreducer.name
+    firstName: state.rootreducer.generalInformation.firstName,
+    lastName: state.rootreducer.generalInformation.lastName
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleNameInput: (value) => dispatch({type: "NAME", value: value}),
     handleImageInput: (value) => dispatch({type: "AVATAR", value: value})
   };
 }

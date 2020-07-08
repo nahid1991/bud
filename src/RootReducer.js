@@ -5,7 +5,6 @@ import {v4 as uuidv4} from 'uuid';
 
 const rootReducer = function (state = {
   avatar: avatar,
-  name: "",
   generalInformation: {
     firstName: "",
     lastName: "",
