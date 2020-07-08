@@ -125,7 +125,7 @@ class Banner extends Component {
               }}
             >
               <div style={{...this.state.bottomBorder, display: this.state.editing ? "none" : "block"}}>
-                <h1>{name !== "" ? name : "Your Name"}</h1>
+                <h1>{name !== "" ? name : "Type your name here"}</h1>
               </div>
 
               <input className="input" id="input" type="text"
