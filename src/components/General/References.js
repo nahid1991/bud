@@ -18,6 +18,9 @@ class References extends Component {
   render() {
     return (
       <div style={styles.root}>
+        {this.props.references.length === 0 ? <div style={{width: "100%"}}>
+          <p style={{color: "#03a9f4"}}>Leave empty if you don't want this section to print!</p>
+        </div> : null}
         {this.props.references.map((obj) => {
           return <Reference key={obj.id} onDelete={this.props.handleChange} id={obj.id}
                               name={obj.name} address={obj.address} phoneNumber={obj.phoneNumber}

@@ -18,6 +18,9 @@ class Educations extends Component {
   render() {
     return (
       <div style={styles.root}>
+        {this.props.education.length === 0 ? <div style={{width: "94%"}}>
+          <p style={{color: "#03a9f4"}}>Leave empty if you don't want this section</p>
+        </div> : null}
         {this.props.education.map((obj) => {
           return <Education key={obj.id} onDelete={this.props.handleChange} id={obj.id}
                              from={obj.from} to={obj.to} title={obj.title} address={obj.address}

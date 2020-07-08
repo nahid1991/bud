@@ -82,7 +82,7 @@ class SubSkill extends Component {
         <div style={{...styles.firstCol, paddingTop: "9px"}}>
           <div style={{width: "100%"}}>
             <Input labelStyle={{width: "95%"}} inputStyle={styles.inputField} type={"text"} name={"name"}
-                   placeholder={"Skill"} onChange={this.handleChange} value={this.props.from}/>
+                   placeholder={"Skill"} onChange={this.handleChange} value={this.props.name}/>
           </div>
         </div>
         <div style={styles.secondCol}>

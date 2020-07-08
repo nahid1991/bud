@@ -16,64 +16,16 @@ const rootReducer = function (state = {
     address: "",
   },
   workExperience: [
-    {
-      id: uuidv4(),
-      from: "",
-      to: "",
-      title: "",
-      address: "",
-      description: ""
-    }
   ],
   education: [
-    {
-      id: uuidv4(),
-      from: "",
-      title: "",
-      address: ""
-    }
   ],
   skills: [
-    {
-      id: uuidv4(),
-      category: "",
-      subCategories: [
-        {
-          id: uuidv4(),
-          name: "",
-          rating: 0
-        }
-      ]
-    }
   ],
   certifications: [
-    {
-      id: uuidv4(),
-      issueDate: "",
-      title: "",
-      institute: "",
-      expireDate: "",
-      link: ""
-    }
   ],
   publications: [
-    {
-      id: uuidv4(),
-      issueYear: "",
-      title: "",
-      publisher: "",
-      link: ""
-    }
   ],
   references: [
-    {
-      id: uuidv4(),
-      name: "",
-      address: "",
-      phoneNumber: "",
-      email: "",
-      designation: ""
-    }
   ]
 }, action) {
   switch (action.type) {
