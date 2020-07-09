@@ -12,21 +12,12 @@ function App({context}) {
         <div className="App">
           <Switch>
             <Route exact path="/bud" component={GeneralCv} />
-            <Route exact path="/bud/test" component={Test} />
             <Route render={() => (<div>Are you lost?</div>)} />
           </Switch>
         </div>
       </Router>
     </ConnectedRouter>
   );
-}
-
-function Test() {
-  return (
-    <div>
-      Hello
-    </div>
-  )
 }
 
 

@@ -26,7 +26,7 @@ class Sidebar extends Component {
             <i className="fa fa-save"></i>
           </button>
           <button className="btn-transparent-left" style={{width: "100%", minHeight: "50px", fontSize: "25px",
-            color: "#ffffff", border: "1px solid #ffffff"}} title="Load inputs" onClick={() => {this.openFileBrowser("theJson")}}>
+            color: "#ffffff", border: "1px solid #ffffff", marginBottom: "5px"}} title="Load inputs" onClick={() => {this.openFileBrowser("theJson")}}>
             <i className="fa fa-upload"></i>
           </button>
         </div>
