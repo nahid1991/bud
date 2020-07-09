@@ -17,7 +17,6 @@ code {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 80%;
   padding: 10px;
-  border-radius: 10px;
 }
 
 .navigation_container {
@@ -166,7 +165,7 @@ code {
   background-color: #b71c1c;
   padding: 10px 10px 10px 10px;
   border-color: transparent;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   box-shadow: 0 0 0 0 #ffffff;
   text-decoration: none;
@@ -179,7 +178,7 @@ code {
   background-color: #ff8a80;
   padding: 10px 10px 10px 10px;
   border-color: transparent;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   box-shadow: 0 10px 5px 0 #9e9e9e;
   outline: none;
@@ -191,7 +190,7 @@ code {
   background-color: #ffffff;
   padding: 10px 10px 10px 10px;
   border-color: transparent;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   box-shadow: 0 10px 5px 0 #9e9e9e;
   outline: none;
@@ -215,7 +214,7 @@ code {
   background-color: #0288d1;
   padding: 10px 10px 10px 10px;
   border-color: transparent;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   box-shadow: 0 0 0 0 #ffffff;
   text-decoration: none;
@@ -228,7 +227,7 @@ code {
   background-color: #03a9f4;
   padding: 10px 10px 10px 10px;
   border-color: transparent;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   box-shadow: 0 10px 5px 0 #9e9e9e;
   outline: none;
@@ -240,7 +239,7 @@ code {
   background-color: #01579b;
   padding: 10px 10px 10px 10px;
   border-color: transparent;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   box-shadow: 0 10px 5px 0 #9e9e9e;
   outline: none;
@@ -252,7 +251,7 @@ code {
   background-color: transparent;
   padding: 10px 10px 10px 10px;
   border-color: #0288d1;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   box-shadow: 0 0 0 0 #ffffff;
   text-decoration: none;
@@ -265,7 +264,7 @@ code {
   background-color: #03a9f4;
   padding: 10px 10px 10px 10px;
   border-color: #0288d1;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   box-shadow: 0 10px 5px 0 #9e9e9e;
   outline: none;
@@ -289,7 +288,7 @@ code {
   background-color: transparent;
   padding: 10px 10px 10px 10px;
   border-color: #0288d1;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   box-shadow: 0 0 0 0 #ffffff;
   text-decoration: none;
@@ -302,7 +301,7 @@ code {
   background-color: #03a9f4;
   padding: 10px 10px 10px 10px;
   border-color: #0288d1;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   outline: none;
 }
@@ -313,7 +312,7 @@ code {
   background-color: #01579b;
   padding: 10px 10px 10px 10px;
   border-color: #0288d1;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   outline: none;
 }

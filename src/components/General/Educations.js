@@ -18,7 +18,7 @@ class Educations extends Component {
   render() {
     return (
       <div style={styles.root}>
-        {this.props.education.length === 0 ? <div style={{width: "94%"}}>
+        {this.props.education.length === 0 ? <div style={{width: "93.5%"}}>
           <p style={{color: "#03a9f4"}}>Leave empty if you don't want this section</p>
         </div> : null}
         {this.props.education.map((obj) => {

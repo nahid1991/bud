@@ -20,8 +20,9 @@ class Skills extends Component {
   render() {
     return (
       <div style={styles.root}>
-        {this.props.skills.length === 0 ? <div style={{width: "100%"}}>
-          <p style={{color: "#03a9f4"}}>Leave empty if you don't want this section to print!</p>
+        {this.props.skills.length === 0 ? <div style={{width: "100%", paddingLeft: "0px"}}>
+          <p style={{color: "#03a9f4", textAlign: "left", paddingLeft: "165px"}}>
+            Leave empty if you don't want this section to print!</p>
         </div> : null}
         {this.props.skills.map((obj) => {
           return <Skill key={obj.id} onDelete={this.props.handleChange} id={obj.id}
