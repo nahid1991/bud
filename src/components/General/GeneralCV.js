@@ -1,78 +1,13 @@
 import React, {Component} from 'react';
-import Banner from "./Banner";
 import {connect} from "react-redux";
-import axios from 'axios';
-import PersonalInformation from "./PersonalInformation";
-import SectionHeader from "./Widgets/SectionHeader";
-import Experiences from "./Experiences";
-import Educations from "./Educations";
-import Skills from "./Skills";
-import Certifications from "./Certifications";
-import Publications from "./Publications";
-import References from "./References";
-import Sidebar from "../Sidebar";
 
 // import {Link} from 'react-router-dom';
 
 class GeneralCv extends Component {
-  handleDownload = () => {
-    axios.post('https://secret-castle-60004.herokuapp.com/api/v1/process-pdf',
-      {...this.props.values})
-      .then(function (response) {
-        const linkSource = `data:application/pdf;base64,${response.data.pdf}`;
-        const downloadLink = document.createElement("a");
-        const fileName = "cv.pdf";
-
-        downloadLink.href = linkSource;
-        downloadLink.download = fileName;
-        downloadLink.click();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
-  saveInputs = () => {
-    axios.post('https://secret-castle-60004.herokuapp.com/api/v1/save-inputs',
-      {inputs: JSON.stringify(this.props.values), email: this.props.values.generalInformation.email})
-      .then(function (response) {
-        const linkSource = `data:application/json;base64,${response.data.json}`;
-        const downloadLink = document.createElement("a");
-        const fileName = "cv.json";
-
-        downloadLink.href = linkSource;
-        downloadLink.download = fileName;
-        downloadLink.click();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  load = (e) => {
-    this.props.handleChange("SET_ROOT_REDUCER", JSON.parse(e.target.result));
-  }
-
   render() {
     return (
       <div>
-        <Sidebar download={this.handleDownload} save={this.saveInputs} handlejson={this.load}/>
-        <div className="root">
-          <Banner/>
-          <PersonalInformation/>
-          <SectionHeader title={"Work experience"} icon={"work"}/>
-          <Experiences/>
-          <SectionHeader title={"Education"} icon={"education"}/>
-          <Educations/>
-          <SectionHeader title={"Skills"} icon={"skill"}/>
-          <Skills/>
-          <SectionHeader title={"Certifications"} icon={"certification"}/>
-          <Certifications/>
-          <SectionHeader title={"Publications"} icon={"publication"}/>
-          <Publications/>
-          <SectionHeader title={"References"} icon={"reference"}/>
-          <References/>
-        </div>
+        <h3>Project has moved to <a href="https://resumepoint.xyz">resumepoint.xyz</a></h3>
       </div>
     );
   }
