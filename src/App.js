@@ -12,7 +12,7 @@ function App({context}) {
         <div className="App">
           <Switch>
             <Route exact path="/bud" component={GeneralCv} />
-            <Route render={() => (<div>Are you lost?</div>)} />
+            <Route render={() => (<div><h3>Project has moved to <a href="https://resumepoint.xyz">resumepoint.xyz</a></h3></div>)} />
           </Switch>
         </div>
       </Router>
