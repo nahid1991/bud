@@ -5,6 +5,7 @@ import {v4 as uuidv4} from 'uuid';
 
 const rootReducer = function (state = {
   avatar: avatar,
+  loading: false,
   generalInformation: {
     firstName: '',
     lastName: '',
@@ -240,6 +241,8 @@ const rootReducer = function (state = {
       }
     case "SET_ROOT_REDUCER":
       return action.value;
+    case "SET_LOADING":
+      return {...state, loading: action.value}
     default:
       return state;
   }

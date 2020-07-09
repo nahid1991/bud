@@ -15,7 +15,16 @@ import Sidebar from "../Sidebar";
 // import {Link} from 'react-router-dom';
 
 class GeneralCv extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: false
+    }
+  }
+
   handleDownload = () => {
+    this.props.handleChange("SET_LOADING", true);
+    let that = this;
     axios.post('https://secret-castle-60004.herokuapp.com/api/v1/process-pdf',
       {...this.props.values})
       .then(function (response) {
@@ -26,13 +35,18 @@ class GeneralCv extends Component {
         downloadLink.href = linkSource;
         downloadLink.download = fileName;
         downloadLink.click();
+        that.props.handleChange("SET_LOADING", false);
       })
       .catch(function (error) {
+        alert("Something went wrong!");
         console.log(error);
+        that.props.handleChange("SET_LOADING", false);
       });
   };
 
   saveInputs = () => {
+    this.props.handleChange("SET_LOADING", true);
+    let that = this;
     axios.post('https://secret-castle-60004.herokuapp.com/api/v1/save-inputs',
       {inputs: JSON.stringify(this.props.values), email: this.props.values.generalInformation.email})
       .then(function (response) {
@@ -43,8 +57,11 @@ class GeneralCv extends Component {
         downloadLink.href = linkSource;
         downloadLink.download = fileName;
         downloadLink.click();
+        that.props.handleChange("SET_LOADING", false);
       })
       .catch(function (error) {
+        that.props.handleChange("SET_LOADING", false);
+        alert("Something went wrong!");
         console.log(error);
       });
   }
@@ -57,6 +74,17 @@ class GeneralCv extends Component {
     return (
       <div>
         <Sidebar download={this.handleDownload} save={this.saveInputs} handlejson={this.load}/>
+        <div style={{position: "fixed", zIndex: "1000", height: "100vh", width: "100%", textAlign: "center",
+          background: "#000", opacity: "0.6", marginTop: "-10px", display: this.props.values.loading ? "flex" : "none",
+          alignItems: "center",
+          justifyContent: "center"}}>
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
         <div className="root">
           <Banner/>
           <PersonalInformation/>
