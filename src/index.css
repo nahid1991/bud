@@ -283,6 +283,41 @@ code {
   outline: none;
 }
 
+.btn-transparent-left {
+  color: #03a9f4;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 10px 10px 10px 10px;
+  border-color: #0288d1;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 #ffffff;
+  text-decoration: none;
+  outline: none;
+}
+
+.btn-transparent-left:hover {
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #03a9f4;
+  padding: 10px 10px 10px 10px;
+  border-color: #0288d1;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-transparent-left:active {
+  color: #000000;
+  font-weight: bold;
+  background-color: #01579b;
+  padding: 10px 10px 10px 10px;
+  border-color: #0288d1;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
 .checked {
   color: orange;
   cursor: pointer;

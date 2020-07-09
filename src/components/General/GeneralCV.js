@@ -10,6 +10,7 @@ import Skills from "./Skills";
 import Certifications from "./Certifications";
 import Publications from "./Publications";
 import References from "./References";
+import Sidebar from "../Sidebar";
 
 // import {Link} from 'react-router-dom';
 
@@ -31,32 +32,46 @@ class GeneralCv extends Component {
       });
   };
 
+  saveInputs = () => {
+    axios.post('https://secret-castle-60004.herokuapp.com/api/v1/save-inputs',
+      {inputs: JSON.stringify(this.props.values), email: this.props.values.generalInformation.email})
+      .then(function (response) {
+        const linkSource = `data:application/json;base64,${response.data.json}`;
+        const downloadLink = document.createElement("a");
+        const fileName = "cv.json";
+
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  load = (e) => {
+    this.props.handleChange("SET_ROOT_REDUCER", JSON.parse(e.target.result));
+  }
+
   render() {
     return (
-      <div className="root">
-        <Banner/>
-        <PersonalInformation/>
-        <SectionHeader title={"Work experience"} icon={"work"}/>
-        <Experiences />
-        <SectionHeader title={"Education"} icon={"education"}/>
-        <Educations/>
-        <SectionHeader title={"Skills"} icon={"skill"} />
-        <Skills />
-        <SectionHeader title={"Certifications"} icon={"certification"}/>
-        <Certifications />
-        <SectionHeader title={"Publications"} icon={"publication"}/>
-        <Publications/>
-        <SectionHeader title={"References"} icon={"reference"} />
-        <References />
-        <hr/>
-        <div style={{
-          width: "100%", flexDirection: "column", display: "flex",
-          justifyContent: "flex-end", alignItems: "center", marginRight: "0px"
-        }}>
-          <button className="btn-primary" onClick={() => {
-            this.handleDownload()
-          }}>DOWNLOAD AS PDF
-          </button>
+      <div>
+        <Sidebar download={this.handleDownload} save={this.saveInputs} handlejson={this.load}/>
+        <div className="root">
+          <Banner/>
+          <PersonalInformation/>
+          <SectionHeader title={"Work experience"} icon={"work"}/>
+          <Experiences/>
+          <SectionHeader title={"Education"} icon={"education"}/>
+          <Educations/>
+          <SectionHeader title={"Skills"} icon={"skill"}/>
+          <Skills/>
+          <SectionHeader title={"Certifications"} icon={"certification"}/>
+          <Certifications/>
+          <SectionHeader title={"Publications"} icon={"publication"}/>
+          <Publications/>
+          <SectionHeader title={"References"} icon={"reference"}/>
+          <References/>
         </div>
       </div>
     );
@@ -69,4 +84,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(GeneralCv);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChange: (type, value) => dispatch({type: type, value: value})
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GeneralCv);
