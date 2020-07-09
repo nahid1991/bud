@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
 
 // import {Link} from 'react-router-dom';
 
@@ -13,16 +12,4 @@ class GeneralCv extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    values: state.rootreducer
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleChange: (type, value) => dispatch({type: type, value: value})
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(GeneralCv);
+export default GeneralCv;
