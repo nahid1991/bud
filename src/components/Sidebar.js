@@ -14,7 +14,7 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div style={{float: "left", height: "100vh", width: "80px", background: "#546e7a", top: "0px", position: "fixed"}}>
+      <div style={{float: "left", height: "100vw", width: "80px", background: "#546e7a", top: "0px", position: "fixed"}}>
         <div style={{color: "#ffffff", width: "80%", paddingLeft: "5px", paddingTop: "5px"}}>
           <button className="btn-transparent-left" style={{width: "100%", minHeight: "50px", fontSize: "25px",
             color: "#ffffff", border: "1px solid #ffffff", marginBottom: "5px"}}
