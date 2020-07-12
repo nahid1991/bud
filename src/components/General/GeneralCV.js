@@ -12,6 +12,7 @@ import Publications from "./Publications";
 import References from "./References";
 import Sidebar from "../Sidebar";
 import Topbar from "./Topbar";
+import Volunteerings from "./Volunteerings";
 
 // import {Link} from 'react-router-dom';
 
@@ -101,6 +102,8 @@ class GeneralCv extends Component {
           <Certifications/>
           <SectionHeader title={"Publications"} icon={"publication"}/>
           <Publications/>
+          <SectionHeader title={"Volunteering and other experiences"} icon={"volunteering"} />
+          <Volunteerings/>
           <SectionHeader title={"References"} icon={"reference"}/>
           <References/>
         </div>

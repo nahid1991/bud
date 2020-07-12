@@ -21,6 +21,7 @@ const rootReducer = function (state = {
   skills: [],
   certifications: [],
   publications: [],
+  volunteerings: [],
   references: []
 }, action) {
   switch (action.type) {
@@ -51,14 +52,14 @@ const rootReducer = function (state = {
         })
       };
     case "EDIT_EXP":
-      const selectedExp = state.workExperience.map(w => {
-        if (w.id === action.value.id) {
-          w[action.value.e.target.name] = action.value.e.target.value;
-        }
-        return w;
-      });
-
-      return {...state, workExperience: [...selectedExp]};
+      return {
+        ...state, workExperience: state.workExperience.map(w => {
+          if (w.id === action.value.id) {
+            w[action.value.e.target.name] = action.value.e.target.value;
+          }
+          return w;
+        })
+      };
     case "ADD_EXP":
       return {
         ...state, workExperience: [...state.workExperience, {
@@ -126,7 +127,8 @@ const rootReducer = function (state = {
       return {...state, skills: categories};
 
     case "ADD_SKILL":
-      return {...state, skills: state.skills.map(w => {
+      return {
+        ...state, skills: state.skills.map(w => {
           if (w.id === action.value) {
             w.subCategories = [...w.subCategories, {
               id: uuidv4(),
@@ -135,18 +137,22 @@ const rootReducer = function (state = {
             }];
           }
           return w;
-        })};
+        })
+      };
     case "DELETE_SKILL":
-      return {...state, skills: state.skills.map(w => {
+      return {
+        ...state, skills: state.skills.map(w => {
           if (w.id === action.value.parentId) {
             w.subCategories = w.subCategories.filter(s => {
               return s.id !== action.value.id;
             });
           }
           return w;
-        })};
+        })
+      };
     case "EDIT_SKILL":
-      return {...state, skills: state.skills.map(w => {
+      return {
+        ...state, skills: state.skills.map(w => {
           if (w.id === action.value.parentId) {
             w.subCategories = w.subCategories.map(s => {
               if (s.id === action.value.id) {
@@ -156,7 +162,8 @@ const rootReducer = function (state = {
             });
           }
           return w;
-        })};
+        })
+      };
     case "ADD_CERTIFICATION":
       return {
         ...state, certifications: [...state.certifications,
@@ -240,9 +247,35 @@ const rootReducer = function (state = {
           return c.id !== action.value
         })
       }
+    case "DELETE_VOLUNTEERING":
+      return {
+        ...state, volunteerings: state.volunteerings.filter(w => {
+          return w.id !== action.value;
+        })
+      };
+    case "EDIT_VOLUNTEERING":
+
+      return {
+        ...state, volunteerings: state.volunteerings.map(w => {
+          if (w.id === action.value.id) {
+            w[action.value.e.target.name] = action.value.e.target.value;
+          }
+          return w;
+        })
+      };
+    case "ADD_VOLUNTEERING":
+      return {
+        ...state, volunteerings: [...state.volunteerings, {
+          id: uuidv4(),
+          from: "",
+          to: "",
+          title: "",
+          address: "",
+          description: ""
+        }]
+      };
     case "SET_ROOT_REDUCER":
-      state = {};
-      return action.value;
+      return {...state, ...action.value};
     case "SET_LOADING":
       return {...state, loading: action.value}
     default:
