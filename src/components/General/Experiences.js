@@ -24,7 +24,7 @@ class Experiences extends Component {
         {this.props.workExperience.map((obj) => {
           return <Experience key={obj.id} onDelete={this.props.handleChange} id={obj.id}
           from={obj.from} to={obj.to} title={obj.title} address={obj.address} description={obj.description}
-          onChange={this.props.handleChange}
+          website={obj.website} onChange={this.props.handleChange}
           />
         })}
         <div style={{width: "100%", margin: "10px 0 10px 55px"}}>

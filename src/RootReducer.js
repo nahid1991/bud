@@ -67,7 +67,8 @@ const rootReducer = function (state = {
           to: "",
           title: "",
           address: "",
-          description: ""
+          description: "",
+          website: ""
         }]
       };
     case "DELETE_EDU":
@@ -240,6 +241,7 @@ const rootReducer = function (state = {
         })
       }
     case "SET_ROOT_REDUCER":
+      state = {};
       return action.value;
     case "SET_LOADING":
       return {...state, loading: action.value}

@@ -140,6 +140,20 @@ class Experience extends Component {
             }} onChange={(event) => {
               this.handleChange(event);
             }}
+                   name={"website"}
+                   placeholder={"Website (Optional)"}
+                   value={this.props.website}/>
+            <input type="text" style={{
+              padding: "0 0 0 0",
+              marginLeft: "15px",
+              outline: "none",
+              border: "none",
+              borderBottom: "1px solid #000000",
+              fontSize: "15px",
+              width: "100%",
+            }} onChange={(event) => {
+              this.handleChange(event);
+            }}
                    name={"description"}
                    placeholder={"Short description"}
                    value={this.props.description}/>

@@ -25,6 +25,7 @@ class GeneralCv extends Component {
   handleDownload = () => {
     this.props.handleChange("SET_LOADING", true);
     let that = this;
+    // axios.post('http://localhost:8000/api/v1/process-pdf',
     axios.post('https://secret-castle-60004.herokuapp.com/api/v1/process-pdf',
       {...this.props.values})
       .then(function (response) {
