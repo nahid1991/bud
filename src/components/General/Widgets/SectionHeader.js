@@ -63,7 +63,6 @@ const styles = {
   nameHolder: {
     position: "absolute",
     color: "white",
-    left: "25%",
     top: "-5px",
     zIndex: "501",
     width: "70%",
@@ -83,7 +82,7 @@ const SectionHeader = (props) => {
           }}>
         </div>
         <div>
-          <div style={{...styles.nameHolder}}>
+          <div className="nameholder" style={{...styles.nameHolder}}>
             <p><b>{props.title}</b></p>
           </div>
         </div>

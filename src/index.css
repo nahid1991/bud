@@ -368,4 +368,24 @@ code {
     }
 }
 
+@media(min-width: 320px)
+and (max-width: 768px) {
+    .nameholder {
+        left: 25%;
+    }
+}
+
+@media(min-width: 770px) and
+(max-width: 1200px) {
+    .nameholder {
+        left: 30%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .nameholder {
+        left: 25%;
+    }
+}
+
 
