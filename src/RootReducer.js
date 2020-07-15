@@ -52,6 +52,7 @@ const rootReducer = function (state = {
         })
       };
     case "EDIT_EXP":
+      action.value.e.preventDefault();
       return {
         ...state, workExperience: state.workExperience.map(w => {
           if (w.id === action.value.id) {

@@ -10,6 +10,7 @@ class Sidebar extends Component {
     let reader = new FileReader();
     reader.onload = this.props.handlejson;
     reader.readAsText(e.target.files[0]);
+    e.target.value = "";
   }
 
   render() {
