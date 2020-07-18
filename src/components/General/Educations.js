@@ -19,7 +19,7 @@ class Educations extends Component {
     return (
       <div style={styles.root}>
         {this.props.education.length === 0 ? <div style={{width: "100%"}}>
-          <p style={{color: "#03a9f4", paddingLeft: "265px", textAlign: "left"}}>Leave empty if you don't want this section</p>
+          <p style={{color: "#03a9f4"}}>Leave empty if you don't want this section to print!</p>
         </div> : null}
         {this.props.education.map((obj) => {
           return <Education key={obj.id} onDelete={this.props.handleChange} id={obj.id}

@@ -386,6 +386,9 @@ and (max-width: 768px) {
     .subskillsecondcol {
         margin-right: 15px;
     }
+    .noskillstext {
+        padding-left: 25px;
+    }
 }
 
 @media(min-width: 770px) and
@@ -396,6 +399,9 @@ and (max-width: 768px) {
     .subskillsecondcol {
         margin-right: 15px;
     }
+    .noskillstext {
+        padding-left: 25px;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -404,6 +410,9 @@ and (max-width: 768px) {
     }
     .subskillsecondcol {
         margin-right: 0px;
+    }
+    .noskillstext {
+        padding-left: 162px
     }
 }
 
