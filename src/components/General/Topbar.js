@@ -17,7 +17,7 @@ class Topbar extends Component {
         <div style={{float: "right"}}>
           <small style={{fontWeight: "bold"}}>
             <a className="btn-transparent" href="https://www.linkedin.com/in/nahid-islam-shaiket-5a079ba3/"
-               target="_blank">Contact me!</a>
+               target="_blank">Meet me!</a>
           </small>
         </div>
       </div>
