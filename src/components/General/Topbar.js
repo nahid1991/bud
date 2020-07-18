@@ -14,7 +14,7 @@ class Topbar extends Component {
             Point</h2>
           <small style={{marginTop: "5px", float: "left"}}>Completely free and easy resume generator</small>
         </div>
-        <div style={{float: "right"}}>
+        <div style={{float: "right", marginRight: "50px"}}>
           <small style={{fontWeight: "bold"}}>
             <a className="btn-transparent" href="https://www.linkedin.com/in/nahid-islam-shaiket-5a079ba3/"
                target="_blank">Meet me!</a>
