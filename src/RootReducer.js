@@ -16,13 +16,77 @@ const rootReducer = function (state = {
     linkedIn: '',
     address: ''
   },
-  workExperience: [],
-  education: [],
-  skills: [],
-  certifications: [],
-  publications: [],
-  volunteerings: [],
-  references: []
+  workExperience: [
+    {
+      id: uuidv4(),
+      from: '',
+      to: '',
+      title: '',
+      address: '',
+      description: '',
+      website: ''
+    }
+  ],
+  education: [
+    {
+      id: uuidv4(),
+      from: '',
+      title: '',
+      address: ''
+    }
+  ],
+  skills: [
+    {
+      id: uuidv4(),
+      category: '',
+      subCategories: [
+        {
+          id: uuidv4(),
+          name: '',
+          rating: 0
+        }
+      ]
+    }
+  ],
+  certifications: [
+    {
+      id: uuidv4(),
+      issueDate: '',
+      title: '',
+      institute: '',
+      expireDate: '',
+      link: ''
+    }
+  ],
+  publications: [
+    {
+      id: uuidv4(),
+      issueYear: '',
+      title: '',
+      publisher: '',
+      link: ''
+    }
+  ],
+  volunteerings: [
+    {
+      id: uuidv4(),
+      from: '',
+      to: '',
+      title: '',
+      address: '',
+      description: ''
+    }
+  ],
+  references: [
+    {
+      id: uuidv4(),
+      name: '',
+      address: '',
+      phoneNumber: '',
+      email: '',
+      designation: ''
+    }
+  ]
 }, action) {
   switch (action.type) {
     case "NAME":

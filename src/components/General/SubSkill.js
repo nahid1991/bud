@@ -10,11 +10,11 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     marginBottom: "0px",
-    paddingRight: "15px"
+    paddingRight: "0px"
   },
 
   firstCol: {
-    width: "60%",
+    width: "70%",
     marginTop: "10px",
     marginRight: "5px",
     display: "flex",
@@ -25,7 +25,7 @@ const styles = {
   secondCol: {
     width: "20%",
     marginTop: "25px",
-    marginRight: "0px",
+    // marginRight: "5px",
     display: "flex",
     justifyContent: "flex-start",
     alignItems: "flex-start",
@@ -65,15 +65,9 @@ class SubSkill extends Component {
     let getRatings = () => {
       let stars = [];
       for (let i = 0; i <= 4; i++) {
-        if(i <= this.props.rating) {
-          stars.push(<span className="fa fa-star checked" onClick={() => {
+          stars.push(<span className={i <= this.props.rating ? "fa fa-star checked" : "fa fa-star unchecked"} onClick={() => {
             this.handleChange({target: {name: "rating", value: i}})
           }} key={i}></span>);
-        } else {
-          stars.push(<span className="fa fa-star unchecked" onClick={() => {
-            this.handleChange({target: {name: "rating", value: i}})
-          }} key={i}></span>);
-        }
       }
       return stars;
     }
@@ -85,14 +79,14 @@ class SubSkill extends Component {
                    placeholder={"Skill"} onChange={this.handleChange} value={this.props.name}/>
           </div>
         </div>
-        <div style={styles.secondCol}>
+        <div className="subskillsecondcol" style={styles.secondCol}>
           {getRatings()}
         </div>
-        <div style={{width: "20%", marginTop: "10px"}}>
-          <button className="btn-transparent" style={{border: "none"}} onClick={() => {
+        <div style={{width: "10%", marginTop: "10px"}}>
+          <button className="btn-primary" style={{border: "none", padding: "0px"}} onClick={() => {
             this.props.onDelete("DELETE_SKILL", {parentId: this.props.parentId, id: this.props.id})
           }}>
-            <span className="fa fa-window-close"></span>
+            <span className="fa fa-trash"></span>
           </button>
         </div>
       </div>);

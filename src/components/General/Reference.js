@@ -65,7 +65,7 @@ class Reference extends Component {
     return (
       <div style={styles.root}>
         <div style={styles.firstCol}>
-          <div style={{width: "100%", paddingLeft: "92px", marginTop: "15px"}}>
+          <div style={{width: "75%", marginTop: "15px"}}>
             <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"text"} name={"name"}
                    placeholder={"Referrer name"} onChange={this.handleChange} value={this.props.name}/>
           </div>

@@ -54,7 +54,7 @@ class Skill extends Component {
     return (
       <div style={{display: "flex", flexDirection: "column", width: "48%", border: "1px dashed #546e7a"}}>
         <div style={styles.root}>
-          <div style={{...styles.firstCol, paddingTop: "9px", marginLeft: "-18px"}}>
+          <div style={{...styles.firstCol, paddingTop: "9px", marginLeft: "-10px"}}>
             <div style={{width: "100%", display: "flex", justifyContent: "flex-end"}}>
               <Input labelStyle={{width: "95%", marginTop: "10px"}} inputStyle={styles.inputField} type={"Text"} name={"category"}
                      placeholder={"Category"} onChange={this.handleChange} value={this.props.category}/>

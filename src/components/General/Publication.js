@@ -65,12 +65,9 @@ class Publication extends Component {
     return (
       <div style={styles.root}>
         <div style={styles.firstCol}>
-          <div style={{width: "50%", paddingLeft: "92px"}}>
-            <p style={{marginBottom: "0px", textAlign: "left"}}>Issue year: </p>
-          </div>
-          <div style={{width: "50%"}}>
+          <div style={{width: "75%", marginTop: "1em"}}>
             <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"number"} name={"issueYear"}
-                   placeholder={""} onChange={this.handleChange} value={this.props.issueYear}/>
+                   placeholder={"Issue year"} onChange={this.handleChange} value={this.props.issueYear}/>
           </div>
         </div>
         <div style={styles.secondCol}>
