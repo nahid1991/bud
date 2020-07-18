@@ -67,7 +67,7 @@ class Certification extends Component {
       <div style={styles.root}>
         <div style={styles.firstCol}>
           <div style={{width: "75%", paddingLeft: "auto"}}>
-            <p style={{marginBottom: "0px", textAlign: "left", color: "grey"}}>Issue date: </p>
+            <p style={{marginBottom: "0px", textAlign: "left", color: "grey", marginTop: "5px"}}>Issue date: </p>
             <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"date"} name={"issueDate"}
                    placeholder={""} onChange={this.handleChange} value={this.props.issueDate}/>
             <p style={{marginTop: "5px", textAlign: "left", marginBottom: "0px", color: "grey"}}>Expire date: </p>

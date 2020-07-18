@@ -65,7 +65,7 @@ class Volunteering extends Component {
       <div style={styles.root}>
         <div style={styles.firstCol}>
           <div style={{width: "100%", paddingLeft: "92px"}}>
-            <p style={{marginBottom: "0px", textAlign: "left", color: "grey"}}>From: </p>
+            <p style={{marginBottom: "0px", textAlign: "left", color: "grey", marginTop: "5px"}}>From: </p>
             <Input labelStyle={styles.dateLabels} inputStyle={styles.inputField} type={"month"} name={"from"}
                    placeholder={"From"} onChange={this.handleChange} value={this.props.from}/>
             <p style={{marginTop: "5px", textAlign: "left", marginBottom: "0px", color: "grey"}}>To: </p>
