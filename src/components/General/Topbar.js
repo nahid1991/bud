@@ -7,7 +7,10 @@ class Topbar extends Component {
         width: "93%", background: "#546e7a", top: "0px", position: "absolute", textAlign: "left",
         paddingLeft: "100px", color: "#fff"
       }}>
-        <div style={{cursor: "pointer"}} onClick={() => {
+        <a href="https://www.patreon.com/bePatron?u=39081535" style={{width: "auto"}}
+           target="_blank" rel="noopener noreferrer"
+           data-patreon-widget-type="become-patron-button">Become a Patron!</a>
+        <div style={{cursor: "pointer", marginRight: "5px"}} onClick={() => {
           window.location.href = "/"
         }}>
           <h2 style={{marginBlockEnd: "0px", marginBlockStart: "0px", float: "left", marginRight: "15px"}}>Resume
@@ -22,10 +25,6 @@ class Topbar extends Component {
           <small style={{fontWeight: "bold"}}>
             <a href="https://www.fiverr.com/share/r38QdP" className="btn-transparent"
                target="_blank" rel="noopener noreferrer">Work with me?</a>
-          </small>
-          <small style={{fontWeight: "bold"}}>
-            <a href="https://www.patreon.com/resumepoint" className="btn-transparent"
-               target="_blank" rel="noopener noreferrer">Donate in patreon! <i className="fab fa-patreon"></i></a>
           </small>
         </div>
       </div>
