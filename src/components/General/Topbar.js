@@ -19,6 +19,10 @@ class Topbar extends Component {
             <a className="btn-transparent" href="https://www.linkedin.com/in/nahid-islam-shaiket-5a079ba3/"
                target="_blank" rel="noopener noreferrer">Meet me!</a>
           </small>
+          <small style={{fontWeight: "bold"}}>
+            <a href="https://www.fiverr.com/share/r38QdP" className="btn-transparent"
+               target="_blank" rel="noopener noreferrer">Work with me?</a>
+          </small>
         </div>
       </div>
     );
