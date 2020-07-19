@@ -90,7 +90,7 @@ class Banner extends Component {
             style={{...styles.imageHolder, backgroundImage: `url(${avatar})`,
               color: this.state.decreaseOpacity ? "#000000" : "#ffffff",
               opacity: this.state.decreaseOpacity ? "0.8" : "1",
-              imageOrientation: "0deg";
+              imageOrientation: "0deg",
               backgroundRepeat: "no-repeat", backgroundSize: "cover"}} onClick={() => {
             this.openFileBrowser("theFile")
           }} onMouseEnter={() => {this.setState({decreaseOpacity: true})}}
