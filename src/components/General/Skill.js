@@ -52,7 +52,7 @@ class Skill extends Component {
 
   render() {
     return (
-      <div style={{display: "flex", flexDirection: "column", width: "48%", border: "1px dashed #546e7a"}}>
+      <div style={{display: "flex", flexDirection: "column", width: "48%", border: "1px dashed #546e7a", left: "100px"}}>
         <div style={styles.root}>
           <div style={{...styles.firstCol, paddingTop: "9px", marginLeft: "-10px"}}>
             <div style={{width: "100%", display: "flex", justifyContent: "flex-end"}}>

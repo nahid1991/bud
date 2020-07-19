@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import Label from "./Widgets/Label";
+// import Label from "./Widgets/Label";
 import Input from "./Widgets/Input";
 
 const styles = {
