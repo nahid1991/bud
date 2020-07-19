@@ -23,6 +23,10 @@ class Topbar extends Component {
             <a href="https://www.fiverr.com/share/r38QdP" className="btn-transparent"
                target="_blank" rel="noopener noreferrer">Work with me?</a>
           </small>
+          <small style={{fontWeight: "bold"}}>
+            <a href="https://www.patreon.com/resumepoint" className="btn-transparent"
+               target="_blank" rel="noopener noreferrer"><i className="fa fa-patreon"></i>Donate in patreon!</a>
+          </small>
         </div>
       </div>
     );
