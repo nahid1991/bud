@@ -25,7 +25,7 @@ class Topbar extends Component {
           </small>
           <small style={{fontWeight: "bold"}}>
             <a href="https://www.patreon.com/resumepoint" className="btn-transparent"
-               target="_blank" rel="noopener noreferrer"><i className="fa fa-patreon"></i>Donate in patreon!</a>
+               target="_blank" rel="noopener noreferrer">Donate in patreon! <i className="fab fa-patreon"></i></a>
           </small>
         </div>
       </div>
